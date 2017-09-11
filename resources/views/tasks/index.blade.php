@@ -9,8 +9,14 @@
 <body>
     <h1>dit moet een login worden</h1>  
     <ul>
-        @foreach ($tasks as $task)
-            <li>{{$task->task}}</li>
+         @foreach ($tasks as $task)
+            <li>
+                <a href = '/tasks/{{ $task->id}}'>
+
+                    {{$task->body}}
+             
+                </a>    
+            </li>
         @endforeach
     </ul>
 </body>

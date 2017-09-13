@@ -15,7 +15,8 @@ Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
+//testing with users
+// Route:get('/users', 'UserController@index');
 
-
-
+Route::get('users', 'UsersController@index');
  

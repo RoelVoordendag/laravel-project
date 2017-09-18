@@ -7,8 +7,12 @@
     <title>Project laravel</title>
 </head>
 <body>
-    @yield('content')
-
-    @yield('footer')
+    @include('layouts.nav')
+        <main>
+            <div class='container'>
+                @yield('content')
+            </div>
+        </main>
+    @include('layouts.footer')
 </body>
 </html>

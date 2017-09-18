@@ -1,16 +1,11 @@
 @extends ('layouts/master')
 
-@include('layouts.nav')
-
-@section('content');
-   
-
+@section('content')
+    @foreach($users as $user)
+        <ul>
+            <li>
+                {{$user->Name}}
+            </li>
+        </ul>
+    @endforeach
 @endsection
-
-
-
-@section ('footer')
-    <script> src='js/file.js'</script>
-@endsection
-
-@include('layouts.footer')

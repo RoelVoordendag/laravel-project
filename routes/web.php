@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
  
 Route::get('/tasks', 'TasksController@index');
 
@@ -18,18 +20,18 @@ Route::get('/tasks/{task}', 'TasksController@show');
 //testing with users
 // Route:get('/users', 'UserController@index');
 
-Route::get('/users', 'UsersController@index');
+Route::get('/user', 'UsersController@index')->name('home');
 
 //Register
 
-Route::get('/register' , 'RegistrationController@create');
+Route::get('/register' , 'RegistrationController@create')->name('register');
 
 Route::post('/register', 'RegistrationController@store');
 
 
 //Login
 
-Route::get('/login',  'SessionsController@create');
+Route::get('/login',  'SessionsController@create')->name('login');
 
 Route::post('/login', 'SessionsController@store');
 

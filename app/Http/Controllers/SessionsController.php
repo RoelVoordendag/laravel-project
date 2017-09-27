@@ -6,5 +6,9 @@ use App\User;
 
 class SessionsController extends Controller
 {
-    //lmao
+    public function create(){
+
+        return view('login.create');
+        
+    }
 }

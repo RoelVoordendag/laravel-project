@@ -1,11 +1,16 @@
 @extends ('layouts/master')
 
 @section('content')
-    @foreach($users as $user)
-        <ul>
-            <li>
+    
+        <div class="col-lg-4">
+        <h2>Heading</h2>
+        <p> 
+            @foreach($users as $user)       
                 {{$user->Name}}
-            </li>
-        </ul>
-    @endforeach
+            @endforeach
+        </p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+
+   
+
 @endsection

@@ -8,8 +8,6 @@ class Task extends Model
 {
     public function scopeIncomplete($query)
     {
-
-        return $query->where('completed', 1);  
-            
+        return $query->where('completed', 1);       
     }
 }

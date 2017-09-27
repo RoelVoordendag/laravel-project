@@ -18,5 +18,19 @@ Route::get('/tasks/{task}', 'TasksController@show');
 //testing with users
 // Route:get('/users', 'UserController@index');
 
-Route::get('users', 'UsersController@index');
- 
+Route::get('/users', 'UsersController@index');
+
+//Register
+
+Route::get('/register' , 'RegistrationController@create');
+
+Route::post('/register', 'RegistrationController@store');
+
+
+//Login
+
+Route::get('/login',  'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');

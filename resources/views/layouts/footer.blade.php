@@ -1,1 +1,3 @@
-<h3>Dit is een footer</h3>
+ <footer class="footer">
+        <p>&copy; Company 2017</p>
+      </footer>

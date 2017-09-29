@@ -22,7 +22,6 @@
                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                     </div>
                     <div class="form-group">
-                    {{--  <div class='col-md-4'>  --}}
                         <label for="sel1">Sector</label>
                         <select class="form-control" name='section' style="width: 40%;">
                             <option>Developer</option>
@@ -30,7 +29,6 @@
                             <option>Marketing</option>
                             <option>Coffee</option>
                         </select>
-                    {{--  </div>  --}}
                     </div>
                     <div class= "form-group">
                         <label for="password">Password</label>

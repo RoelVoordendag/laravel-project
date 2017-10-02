@@ -1,6 +1,9 @@
 @extends ('layouts.form.master')
 
+
 @section ('content')
+@include('layouts.admin.sidebar')
+
     <div class = 'col-md-4'>
         <h2>Make New User</h2>
             <form action="/register" method='POST'>

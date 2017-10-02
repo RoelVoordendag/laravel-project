@@ -26,9 +26,9 @@ Route::get('/', 'UsersController@index')->name('home'); //homepage voor users
 
 //Register
 
-Route::get('/register' , 'RegistrationController@create')->name('register');
+Route::get('/admin/register' , 'RegistrationController@create')->name('register');
 
-Route::post('/register', 'RegistrationController@store');
+Route::post('/admin/register', 'RegistrationController@store');
 
 
 //Login

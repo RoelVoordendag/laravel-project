@@ -41,4 +41,4 @@ Route::get('/logout', 'SessionsController@destroy'); //logout
 
 //Admin pages
 
-Route::get('user/admin', 'AdminController@index')->name('admin'); //admin index page
+Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page

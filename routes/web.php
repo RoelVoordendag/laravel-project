@@ -20,7 +20,7 @@ Route::get('/tasks/{task}', 'TasksController@show');
 //testing with users
 // Route:get('/users', 'UserController@index');
 
-Route::get('/user', 'UsersController@index')->name('home'); //homepage voor users
+Route::get('/', 'UsersController@index')->name('home'); //homepage voor users
 
 //Register
 
@@ -31,8 +31,8 @@ Route::post('/register', 'RegistrationController@store');
 
 //Login
 
-Route::get('/user/login',  'SessionsController@create')->name('login');  //login index
+Route::get('/login',  'SessionsController@create')->name('login');  //login index
 
-Route::post('/user/login', 'SessionsController@store'); //when the login forum is posted
+Route::post('/login', 'SessionsController@store'); //when the login forum is posted
 
-Route::get('/user/logout', 'SessionsController@destroy'); //logout
+Route::get('/logout', 'SessionsController@destroy'); //logout

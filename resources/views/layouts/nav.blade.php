@@ -3,30 +3,22 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav text-md-center nav-justified w-100">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Downloads</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
+            <ul class="navbar-nav text-md-center nav-justified w-100"> 
+                <li class='nav-item active'>
+                    <a class='nav-link' href="{{url('/')}}">Home</a>
+                </li>
+                @auth
+                    <li class='nav-item active'>
+                        <a class='nav-link' href="{{url('/logout')}}">Logout</a>
+                    </li>
+                @endauth
+                <li class="nav-item active">
+                    @auth
+                        <a class="nav-link" href="{{url('/user/profile')}}">{{Auth::user()->name}}</a>
+                    @else
+                        <a class='nav-link'href="{{url('/login')}}">Login</a>
+                    @endauth
+                </li>
             </ul>
           </div>
         </nav>

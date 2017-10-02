@@ -20,14 +20,12 @@
   <body>
 
     <div class="container">
+      
 
         <div class="masthead">
-
-            <h3 class="text-muted">Laravel Project</h3>   
+          <h3 class="text-muted">Laravel Project</h3>   
             @include('layouts.nav')
-        </div>
-
-
+        </div> 
       {{--  Op deze manier mah dude eerst de row want alles staat in de row --}}
             <div class="row">
 
@@ -49,11 +47,10 @@
                 <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
                 </div>  --}}
             </div>  
-
-
+              
+      @include('layouts.footer')
     </div> <!-- /container -->
     
-    @include('layouts.footer')
 
     <!--  jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>

@@ -3,7 +3,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav text-md-center nav-justified w-100"> 
+            <ul class="navbar-nav text-mr-center nav-justified w-100"> 
                 <li class='nav-item active'>
                     <a class='nav-link' href="{{url('/')}}">Home</a>
                 </li>

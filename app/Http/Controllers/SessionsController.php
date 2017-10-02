@@ -6,6 +6,11 @@ use App\User;
 
 class SessionsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'destroy']);
+    }
     //to create page
     public function create(){
 
@@ -21,7 +26,7 @@ class SessionsController extends Controller
             ]);
         }
         return redirect()->home();
-        
+
     }
     //logout function
     public function destroy()

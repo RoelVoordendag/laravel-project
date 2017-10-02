@@ -11,7 +11,9 @@
 |
 */
 
-
+Route::get('/admin', function () {
+    return view('layouts.admin.admin');
+});
  
 Route::get('/tasks', 'TasksController@index');
 
@@ -36,3 +38,7 @@ Route::get('/login',  'SessionsController@create')->name('login');  //login inde
 Route::post('/login', 'SessionsController@store'); //when the login forum is posted
 
 Route::get('/logout', 'SessionsController@destroy'); //logout
+
+//Admin pages
+
+Route::get('user/admin', 'AdminController@index')->name('admin'); //admin index page

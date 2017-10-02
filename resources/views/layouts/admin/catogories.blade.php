@@ -1,0 +1,10 @@
+     <thead>
+                    <tr>
+                    <th>Naam</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                    <th>Section</th>
+                    <th>Phonenumber</th>
+                    <th>Update</th>
+                    </tr>
+    </thead>

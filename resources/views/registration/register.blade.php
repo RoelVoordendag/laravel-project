@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group" style='width: 50%'>
                         <label for="Phonenumber">Phonenumber:</label>
-                        <input type="text" class="form-control" name='phonenumber' id="formGroupExampleInput2"  >
+                        <input type="text" class="form-control" name='phonenumber' id="formGroupExampleInput2" value='310'  >
                     </div>
                      <div class="form-group" style='width: 50%'> <!-- Date input -->
                         <label class="control-label" for="date">Date</label>
@@ -31,6 +31,14 @@
                             <option>Designer</option>
                             <option>Marketing</option>
                             <option>Coffee</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="sel1">Sector</label>
+                        <select class="form-control" name='role' style="width: 40%;">
+                            <option value='3'>Admin</option>
+                            <option value='2'>Writer</option>>
+                            <option value='1'>User</option>
                         </select>
                     </div>
                     <div class= "form-group">

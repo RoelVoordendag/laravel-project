@@ -5,6 +5,7 @@
                     <th>Birthday</th>
                     <th>Section</th>
                     <th>Phonenumber</th>
+                    <th>Roles</th>
                     <th>Update</th>
                     </tr>
     </thead>

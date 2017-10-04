@@ -22,14 +22,15 @@ class RegistrationController extends Controller
             'section' => 'required',
             'password' => 'required|confirmed'
         ]); 
-
-        $user = User::create(request(['name', 'email', 'phonenumber', 'date', 'section', 'password']));
+        
+        
+        $user = User::create(request(['name', 'email', 'phonenumber', 'date', 'section', 'role', 'password']));
         $user->password = bcrypt($user->password);
 
         $user->save();
 
         //redirecting to home page
-        return redirect()->home();
+        return redirect()->home(); 
         
     }
 }

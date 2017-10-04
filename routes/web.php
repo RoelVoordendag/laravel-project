@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/admin', function () {
-    return view('layouts.admin.admin');
-});
- 
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
@@ -22,23 +18,41 @@ Route::get('/tasks/{task}', 'TasksController@show');
 //testing with users
 // Route:get('/users', 'UserController@index');
 
-Route::get('/', 'UsersController@index')->name('home'); //homepage voor users
+//homepage handling
+    Route::get('/', 'UsersController@homepageHandler');
 
-//Register
+//Error handling role
+    Route::get('/errorRole', 'ErrorController@errorRole');
 
-Route::get('/admin/register' , 'RegistrationController@create')->name('register');
-
-Route::post('/admin/register', 'RegistrationController@store');
+    Route::post('/errorRole', 'ErrorController@destroy');
 
 
 //Login
+    Route::get('/login',  'SessionsController@create')->name('login');  //login index
+    
+    Route::post('/login', 'SessionsController@store'); //when the login forum is posted
+    
+    Route::get('/logout', 'SessionsController@destroy'); //logout
 
-Route::get('/login',  'SessionsController@create')->name('login');  //login index
+//middleware admin
 
-Route::post('/login', 'SessionsController@store'); //when the login forum is posted
 
-Route::get('/logout', 'SessionsController@destroy'); //logout
+Route::middleware(['user'])->group(function(){
 
-//Admin pages
+        Route::get('/user', 'UsersController@index')->name('home'); //homepage voor users    
+            
+            Route::middleware(['writer'])->group(function(){
+                //midleware for al admin
+                Route::middleware(['admin'])->group(function(){
+                    
+                    Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page  
 
-Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page
+                    //Register
+                    Route::get('/admin/register' , 'RegistrationController@create')->name('register');
+
+                    Route::post('/register', 'RegistrationController@store');
+
+            });
+        });
+});
+

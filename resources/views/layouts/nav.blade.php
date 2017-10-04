@@ -5,20 +5,31 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav text-mr-center nav-justified w-100"> 
                 <li class='nav-item active'>
-                    <a class='nav-link' href="{{url('/')}}">Home</a>
+                    <a class='nav-link' href="{{url('/user')}}">Home</a>
                 </li>
+                @auth
+                <li class="nav-item active">            
+                    <a class='nav-link'href="{{url('/admin')}}">Admin</a>
+                </li>
+                @endauth
+                @auth
+                  <li class="nav-item active">            
+                    <a class='nav-link'href="{{url('/admin/writer')}}">Writer</a>
+                </li>
+                @endauth
                 @auth
                     <li class='nav-item active'>
                         <a class='nav-link' href="{{url('/logout')}}">Logout</a>
                     </li>
                 @endauth
                 <li class="nav-item active">
-                    @auth
+                @auth
                         <a class="nav-link" href="{{url('/user/profile')}}">{{Auth::user()->name}}</a>
-                    @else
+                @else
                         <a class='nav-link'href="{{url('/login')}}">Login</a>
-                    @endauth
+                @endauth
                 </li>
+
             </ul>
           </div>
         </nav>

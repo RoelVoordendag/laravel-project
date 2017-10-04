@@ -9,10 +9,10 @@
                 <a href="{{url('/admin/register')}}" class='nav-link'>Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Loan</a>
+              <a class="nav-link" href="{{url('/admin/loan')}}">Loan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Writing</a>
+              <a class="nav-link" href="{{url('/admin/writer')}}">Writing</a>
             </li>
           </ul>
         </nav>

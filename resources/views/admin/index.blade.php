@@ -17,7 +17,16 @@
                     Admin
                 @endif
             </td>
-            <td>W.I.P.</td>
+            <td>
+             <form action="{{ url('admin/delete/'.$user->id) }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+
+                    <button type="submit" class="btn btn-danger">
+                    Delete
+                    </button>
+                </form>
+            </td>
         </tr>
     @endforeach
 @endsection

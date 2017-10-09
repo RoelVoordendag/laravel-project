@@ -65,6 +65,8 @@ Route::middleware(['user'])->group(function(){
                     Route::middleware(['admin'])->group(function(){
                         
                         Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page  
+                        //deleting user
+                        Route::delete('admin/delete/{user}', 'AdminController@delete')->name('user-delete');
 
                         //Register
                         Route::get('/admin/register' , 'RegistrationController@create')->name('register');

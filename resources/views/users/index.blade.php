@@ -1,15 +1,17 @@
 @extends ('layouts/master')
 
 @section('content')
-    
-        <div class="col-lg-4">
-        <h2>Text</h2>
-            <p>
-                @foreach($users as $user)       
-                    {{$user->name}}
-                @endforeach
-            </p>
-        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    @foreach($texts as $text)       
+        <div class="col-lg-4" >
+            <h2>{{$text->title}}</h2>
+            <div class="col-40 text-truncate">
+                <p>
+                    {{$text->body}}
+                </p>
+            </div>    
+            <p><a class="btn btn-primary" href="/writer/detail/{{$text->id}}" role="button">View details</a></p>
+        </div>
+    @endforeach
 
    
 

@@ -12,7 +12,7 @@
               <a class="nav-link" href="{{url('/admin/loan')}}">Loan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/admin/writer')}}">Writing</a>
+              <a class="nav-link" href="{{url('/writer')}}">Text</a>
             </li>
           </ul>
         </nav>

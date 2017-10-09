@@ -38,21 +38,35 @@ Route::get('/tasks/{task}', 'TasksController@show');
 
 
 Route::middleware(['user'])->group(function(){
+        //detail page for writing pages
+        Route::get('/writer/detail/{text}', 'TextController@detail');
 
         Route::get('/user', 'UsersController@index')->name('home'); //homepage voor users    
             
+            //middleware for writers
             Route::middleware(['writer'])->group(function(){
-                //midleware for al admin
-                Route::middleware(['admin'])->group(function(){
+
+                //page to delete and edit text
+                Route::get('/writer', 'TextController@index')->name('writer');
+                //Route to create a text
+                Route::get('/writer/create', 'TextController@create')->name('create-text');
+                //posting text
+                Route::post('/writer/create', 'TextController@store');
+                //delete post
+                Route::delete('/writer/{text}', 'TextController@delete');
                     
-                    Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page  
+                
+                    //midleware for al admin
+                    Route::middleware(['admin'])->group(function(){
+                        
+                        Route::get('/admin', 'AdminController@index')->name('admin'); //admin index page  
 
-                    //Register
-                    Route::get('/admin/register' , 'RegistrationController@create')->name('register');
+                        //Register
+                        Route::get('/admin/register' , 'RegistrationController@create')->name('register');
 
-                    Route::post('/register', 'RegistrationController@store');
+                        Route::post('/register', 'RegistrationController@store');
 
-            });
+                    });
         });
 });
 

@@ -19,7 +19,7 @@ class UserMiddleware
     {
         if(! Auth::check() ){
             return redirect('/login')->withErrors([
-                'message' => "You are not logged in"
+                'message' => "You are not yet logged in go ahead and login"
                 ]);   
             }
             if(! (auth()->user()->role >  0) ){

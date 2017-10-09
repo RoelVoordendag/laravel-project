@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Text;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     public function index(){
-        $users = User::all();
+        $texts = Text::all();
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('texts'));
     }
     public function homepageHandler()
     {

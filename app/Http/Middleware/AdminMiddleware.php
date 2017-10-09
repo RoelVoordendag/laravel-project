@@ -20,13 +20,13 @@ class AdminMiddleware
         //checking if user is logged in
         if(! Auth::check() ){
             return redirect('/login')->withErrors([
-                'message' => "You are not logged in"
+                'message' => "You are not yet logged in go ahead and login"
                 ]);   
             }
             if(! (auth()->user()->role > 2) ){
                 
                 return redirect('/errorRole')->withErrors([
-                    'message' => "You don't own this role"
+                    'message' => "You are not yet logged in "
                 ]); 
             }
         return $next($request);

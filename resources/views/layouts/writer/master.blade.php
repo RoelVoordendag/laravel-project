@@ -24,20 +24,17 @@
 
         @include('layouts.admin.sidebar')
           <main class="col-sm-9 col-md-10 " role="main">
-         
-          <h2>Users</h2>
-          <section>
-            <p>search engine will be made here</p>
-          </section>
+          <h2>Section</h2>
           <hr>
             <div class="table-responsive">
                 <table class="table table-striped">
-                  @include('layouts.admin.catogories')
+                  @include('layouts.writer.catogories')
                     <tbody>
-                      @yield('content-admin')
+                      @yield('content-writer')
                     </tbody>
                 </table>
             </div>
+            @yield('below-table')
             </main>
         </div>
         @include('layouts.footer')

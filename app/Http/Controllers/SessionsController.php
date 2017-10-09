@@ -18,6 +18,7 @@ class SessionsController extends Controller
 
     }
     
+    //checking if the user is logged in
     public function store()
     {
         if(! auth()->attempt(request(['email', 'password']))){

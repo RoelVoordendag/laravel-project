@@ -14,7 +14,7 @@
                 @endauth
                 @auth
                   <li class="nav-item active">            
-                    <a class='nav-link'href="{{url('/admin/writer')}}">Writer</a>
+                    <a class='nav-link'href="{{url('/writer')}}">Writer</a>
                 </li>
                 @endauth
                 @auth

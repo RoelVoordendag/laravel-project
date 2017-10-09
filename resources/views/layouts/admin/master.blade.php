@@ -38,6 +38,7 @@
                     </tbody>
                 </table>
             </div>
+            @yield('below-table')
             </main>
         </div>
         @include('layouts.footer')

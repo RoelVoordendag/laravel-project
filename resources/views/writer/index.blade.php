@@ -1,19 +1,31 @@
 @extends('layouts.writer.master')
 
 @section('content-writer')
-    @foreach($titles as $title)
+    @foreach($texts as $text)
         <tr>
-            <td>{{$title->title}}</td>
-            <td>{{$title->id}}</td>
+            <td>{{$text->title}}</td>
             <td>
-                <form action="{{ url('writer/'.$title->id) }}" method="POST">
+            <p><a class="btn btn-warning" href="/writer/edit/{{$text->id}}" role="button">Edit</a></p>
+            </td>
+            <td>
+                <form action="{{ url('writer/'.$text->id) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
                     <button type="submit" class="btn btn-danger">
-                        <i class="fa fa-trash"></i> Delete
+                    Delete
                     </button>
                 </form>
+            </td>
+            <td>
+               <form action="{{ url('writer/system/'.$text->id) }}" method='POST'>
+                    {{ csrf_field() }}
+                    @if($text->switch)
+                        <button type="submit" class="btn btn-outline-success">Online</button>
+                    @else
+                        <button type="submit" class="btn btn-outline-danger">Offline</button>
+                    @endif
+               </form>
             </td>
         </tr>
     @endforeach

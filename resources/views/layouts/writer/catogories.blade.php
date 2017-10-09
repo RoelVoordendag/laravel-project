@@ -2,6 +2,7 @@
                     <tr>
                         <th>Titel</th>
                         <th>Edit</th>
-                        <th></th>
+                        <th>Delete</th>
+                        <th>On/Off</th>
                     </tr>
     </thead>

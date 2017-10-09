@@ -21,3 +21,6 @@
         </tr>
     @endforeach
 @endsection
+@section('below-table')
+        <p><a class="btn btn-primary" href="/admin/register" role="button">Create User</a></p>
+@endsection

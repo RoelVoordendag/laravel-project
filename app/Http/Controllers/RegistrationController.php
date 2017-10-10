@@ -30,7 +30,7 @@ class RegistrationController extends Controller
         $user->save();
 
         //redirecting to home page
-        return redirect()->home(); 
+        return redirect('/admin'); 
         
     }
 }

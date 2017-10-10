@@ -27,6 +27,9 @@
                     </button>
                 </form>
             </td>
+            <td>
+                <p><a class="btn btn-warning" href="/admin/edit/{{$user->id}}" role="button">Edit</a></p>
+            </td>
         </tr>
     @endforeach
 @endsection

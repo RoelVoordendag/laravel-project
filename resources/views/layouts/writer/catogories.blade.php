@@ -3,6 +3,6 @@
                         <th>Titel</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>On/Off</th>
+                        <th>Online/Offline</th>
                     </tr>
     </thead>

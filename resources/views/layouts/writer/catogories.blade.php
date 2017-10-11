@@ -4,5 +4,6 @@
                         <th>Edit</th>
                         <th>Delete</th>
                         <th>Online/Offline</th>
+                        <th>Main</th>
                     </tr>
     </thead>

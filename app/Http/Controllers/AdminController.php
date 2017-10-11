@@ -29,45 +29,21 @@ class AdminController extends Controller
         return view('admin.edit-users', compact('user'));
     }
     //editing data in database
-    public function edited(User $user)
+    public function edited(Request $request, User $user)
     {
     //validating data
         $this->validate(request(),[
-        'name' => 'required',
-        'email' => 'required',
-        'phonenumber' => 'required',
-        'date'  =>  'required|date',
-        'section' => 'required',
-        'role'  => 'required'
+            'name' => 'required',
+            'email' => 'required',
+            'phonenumber' => 'required',
+            'date'  =>  'required|date',
+            'section' => 'required',
+            'role'  => 'required'
         ]); 
-        //getting data
-        $users = User::find($user->id);
-
-        $name = request()->input('name');
-
-        $email = request()->input('email');
-
-        $phonenumber = request()->input('phonenumber');
-
-        $date = request()->input('date'); 
-
-        $section = request()->input('section');
-
-        $role = request()->input('role');
+      
         //changing data
-        $users->name = $name;
-
-        $users->email = $email;
-
-        $users->phonenumber = $phonenumber;
-
-        $users->date = $date;
-
-        $users->section = $section;
-
-        $users->role = $role;
-        //pushing data to server
-        $users->save();
+        
+        $user->update($request->all());
 
         return redirect('/admin');
         

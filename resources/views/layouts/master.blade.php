@@ -27,8 +27,12 @@
             @include('layouts.nav')
         </div>
 
-        @include('layouts.header')
-
+        {{--  @include('layouts.header')  --}}
+        <div class="jumbotron">
+          <h1>Nieuws en shit</h1>
+          <p class="lead">Hier komt misschien nog een leuke iets te staan idk of ik het ga gebruiken</p>
+          <p><a class="btn btn-lg btn-success" href="#" role="button">View Details</a></p>
+        </div>
       {{--  Op deze manier mah dude eerst de row want alles staat in de row --}}
             <div class="row">
 

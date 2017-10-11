@@ -18,6 +18,7 @@ class CreateTextsTable extends Migration
             $table->string('title');
             $table->longText('body');
             $table->boolean('switch')->default(true);
+            $table->boolean('main')->default(false);
             $table->timestamps();
         });
     }

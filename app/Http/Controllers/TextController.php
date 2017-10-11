@@ -37,24 +37,14 @@ class TextController extends Controller
     {
         return view('writer.edit', compact('text'));
     }
-    public function edited(Text $text)
+    public function edited(Request $request , Text $text)
     {
         $this->validate(request(),[
             'title' => 'required',
             'body' =>   'required' 
         ]);
-        //getting data of right table
-        $texts = Text::find($text->id);
-        //getting data from form
-        $title = request()->input('title');
 
-        $body = request()->input('body');
-        
-        $texts->title = $title;
-        
-        $texts->body = $body;
-
-        $texts->save();
+        $text->update($request->all());
 
         return redirect('/writer');
         
@@ -72,19 +62,46 @@ class TextController extends Controller
         return redirect('/writer');
     }
     //changing status of posts
-    public function switch(Text $text)
+    public function switch(Request $request, Text $text)
     {
-    $texts = Text::find($text->id);
-
         if($text->switch){
-            $texts->switch = false;
-            $texts->save();
+            $text->update(['switch' => 0]);
             }else{
-            $texts->switch = true;
-            $texts->save();                
+            $text->update(['switch' => 1]);
         }
+
+        // $texts = Text::find($text->id);
+        //         if($text->switch){
+        //             $texts->switch = false;
+        //             $texts->save();
+        //             }else{
+        //             $texts->switch = true;
+        //             $texts->save();                
+        //         }
     return redirect('/writer');    
         
     }
-    
+    public function main (Request $request, Text $text)
+    {
+        //only one 1 database true 
+        //if one is true other cannot become true 
+        //always can become false
+        // $items = Text::where('main', true)->get();  
+        // $items = Text::all();
+        // foreach($items as $item){
+        //     if(!$item->main == true){
+        //             if(!$text->main){
+        //                 $text->update(['main' => 0]);                                        
+        //             }
+        //                 $text->update(['main' => 1]);                                    
+        //         }
+        //     }
+        
+            // $text->update(['main' => 0]);
+        // }elseif($items){
+        //     $text->update(['main' => 0]);
+        //     print_r('het moet nu false zijn');            
+        // }
+        return redirect('/writer');
+    }
 }

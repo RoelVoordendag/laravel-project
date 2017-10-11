@@ -55,12 +55,14 @@ Route::middleware(['user'])->group(function(){
                 //delete post
                 Route::delete('/writer/{text}', 'TextController@delete');
                 //editing post
-                Route::get('/writer/edit/{text}', 'TextController@edit');
+                Route::post('/writer/edit/{text}', 'TextController@edit');
                 //updating data in database
                 Route::post('/writer/edit/{text}', 'TextController@edited');
-                //changen online statust of text
+                //changing online statust of text
                 Route::post('writer/system/{text}', 'TextController@switch');
-                
+                //changing the header on home page
+                Route::post('writer/main/{text}', 'TextController@main');
+
                     //midleware for al admin
                     Route::middleware(['admin'])->group(function(){
                         

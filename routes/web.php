@@ -60,8 +60,6 @@ Route::middleware(['user'])->group(function(){
                 Route::post('/writer/edit/{text}', 'TextController@edited');
                 //changing online statust of text
                 Route::post('writer/system/{text}', 'TextController@switch');
-                //changing the header on home page
-                Route::post('writer/main/{text}', 'TextController@main');
 
                     //midleware for al admin
                     Route::middleware(['admin'])->group(function(){

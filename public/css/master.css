@@ -67,4 +67,6 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 1.25rem;
+  font-weight: 300;
 } 

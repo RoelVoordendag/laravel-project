@@ -81,27 +81,5 @@ class TextController extends Controller
     return redirect('/writer');    
         
     }
-    public function main (Request $request, Text $text)
-    {
-        //only one 1 database true 
-        //if one is true other cannot become true 
-        //always can become false
-        // $items = Text::where('main', true)->get();  
-        // $items = Text::all();
-        // foreach($items as $item){
-        //     if(!$item->main == true){
-        //             if(!$text->main){
-        //                 $text->update(['main' => 0]);                                        
-        //             }
-        //                 $text->update(['main' => 1]);                                    
-        //         }
-        //     }
-        
-            // $text->update(['main' => 0]);
-        // }elseif($items){
-        //     $text->update(['main' => 0]);
-        //     print_r('het moet nu false zijn');            
-        // }
-        return redirect('/writer');
-    }
+
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     public function index(){
-        $texts = Text::all();
+        $texts = Text::latest()->get();
 
         return view('users.index', compact('texts'));
     }

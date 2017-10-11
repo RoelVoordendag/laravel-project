@@ -26,16 +26,6 @@
                     @endif
                </form>
             </td>
-            <td>
-                <form action="{{url('writer/main/'.$text->id)}}" method="POST">
-                    {{ csrf_field() }}
-                    @if($text->main)
-                        <button type="submit" class="btn btn-outline-success">Shown</button>
-                    @else
-                        <button type="submit" class="btn btn-outline-danger">Not Shown</button>
-                    @endif
-                </form>
-            </td>
         </tr>
     @endforeach
 @endsection

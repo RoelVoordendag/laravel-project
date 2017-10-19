@@ -23,7 +23,7 @@ class AdminController extends Controller
 
         return redirect('/admin');
     }
-    //route to edit page
+//route to edit page
     public function edit(User $user)
     {
         return view('admin.edit-users', compact('user'));
@@ -42,11 +42,17 @@ class AdminController extends Controller
         ]); 
       
         //changing data
-        
+
         $user->update($request->all());
 
         return redirect('/admin');
-        
-        
+    }
+    public function searchEngine(Request $request)
+    {
+        $results = User::search($request->search)->get();
+
+        $search_term = $request->search;
+
+        return view('admin.search-users', compact('results', 'search_term'));
     }
 }

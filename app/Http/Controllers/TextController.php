@@ -35,13 +35,14 @@ class TextController extends Controller
     //editing text
     public function edit(Text $text)
     {
+            
         return view('writer.edit', compact('text'));
     }
     public function edited(Request $request , Text $text)
     {
         $this->validate(request(),[
             'title' => 'required',
-            'body' =>   'required' 
+            'body' =>   'required' ,
         ]);
 
         $text->update($request->all());
@@ -69,15 +70,6 @@ class TextController extends Controller
             }else{
             $text->update(['switch' => 1]);
         }
-
-        // $texts = Text::find($text->id);
-        //         if($text->switch){
-        //             $texts->switch = false;
-        //             $texts->save();
-        //             }else{
-        //             $texts->switch = true;
-        //             $texts->save();                
-        //         }
     return redirect('/writer');    
         
     }

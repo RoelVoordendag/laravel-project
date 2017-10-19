@@ -34,9 +34,9 @@
                 @yield('content')
             </div>  
 
+        @include('layouts.footer')
 
     </div> <!-- /container -->
     
-    @include('layouts.footer')
   </body>
 </html>

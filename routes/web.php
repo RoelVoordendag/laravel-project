@@ -15,8 +15,7 @@ Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
-//testing with users
-// Route:get('/users', 'UserController@index');
+
 
 //homepage handling
     Route::get('/', 'UsersController@homepageHandler');
@@ -38,10 +37,12 @@ Route::get('/tasks/{task}', 'TasksController@show');
 
 
 Route::middleware(['user'])->group(function(){
-        //detail page for writing pages
+    
+         //detail page for writing pages
         Route::get('/writer/detail/{text}', 'TextController@detail');
-
-        Route::get('/user', 'UsersController@index')->name('home'); //homepage voor users    
+    
+        //homepage voor users
+        Route::get('/user', 'UsersController@index')->name('home');     
             
             //middleware for writers
             Route::middleware(['writer'])->group(function(){
@@ -55,7 +56,7 @@ Route::middleware(['user'])->group(function(){
                 //delete post
                 Route::delete('/writer/{text}', 'TextController@delete');
                 //editing post
-                Route::post('/writer/edit/{text}', 'TextController@edit');
+                Route::get('/writer/edit/{text}', 'TextController@edit');   
                 //updating data in database
                 Route::post('/writer/edit/{text}', 'TextController@edited');
                 //changing online statust of text
@@ -73,8 +74,10 @@ Route::middleware(['user'])->group(function(){
                         Route::post('admin/edit/{user}', 'AdminController@edited');
                         //Register
                         Route::get('/admin/register' , 'RegistrationController@create')->name('register');
-
+                        //posting data to server
                         Route::post('/register', 'RegistrationController@store');
+                        //searching in user database
+                        Route::post('admin/search','AdminController@searchEngine');
 
                     });
         });

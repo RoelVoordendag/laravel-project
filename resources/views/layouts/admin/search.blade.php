@@ -25,19 +25,14 @@
         @include('layouts.admin.sidebar')
           <main class="col-sm-9 col-md-10 " role="main">
          
-          <h2>Users</h2>
-          <hr>
-            <section>
+            <h2>Users</h2>
+            <hr>
+            <section class= 'd-inline'>
               @yield('search-engine-admin')
             </section>
             <hr>
             <div class="table-responsive">
-                <table class="table table-striped">
-                  @include('layouts.admin.catogories')
-                    <tbody>
-                      @yield('content-admin')
-                    </tbody>
-                </table>
+                @yield('results')
             </div>
             @yield('below-table')
             </main>

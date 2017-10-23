@@ -23,10 +23,12 @@ class AdminMiddleware
                 'message' => "You are not yet logged in go ahead and login"
                 ]);   
             }
-            if(! (auth()->user()->role > 2) ){
+
+        //checking role 
+        if(! (auth()->user()->role > 2) ){
                 
-                return redirect('/errorRole')->withErrors([
-                    'message' => "You are not yet logged in "
+            return redirect('/errorRole')->withErrors([
+            'message' => "You are not yet logged in "
                 ]); 
             }
         return $next($request);

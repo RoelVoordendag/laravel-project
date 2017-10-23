@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-
+use App\Salary;
 use Illuminate\Http\Request;
 
 
@@ -54,5 +54,11 @@ class AdminController extends Controller
         $search_term = $request->search;
 
         return view('admin.search-users', compact('results', 'search_term'));
+    }
+    public function loanInverting()
+    {
+        $users = User::latest()->get();
+
+        return view('admin.loan', compact('users'));
     }
 }

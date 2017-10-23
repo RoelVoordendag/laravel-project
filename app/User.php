@@ -16,5 +16,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+    public function salaryInput(){
+        return $this->hasMany('App\Salary');
+    }
 }

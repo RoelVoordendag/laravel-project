@@ -32,9 +32,9 @@
                     </select>
                     </div>
                      <div class="form-group">
-                        <label for="sel1">Sector</label>    
+                        <label for="sel1">Role</label>    
                         <select class="form-control" name='role'value='{{$user->role}}'style="width: 40%;">
-                            <option selected>
+                            <option selected disabled>
                             @if($user->role == 1)
                                 User
                             @elseif($user->role ==2)

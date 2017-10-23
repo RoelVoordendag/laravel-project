@@ -78,6 +78,10 @@ Route::middleware(['user'])->group(function(){
                         Route::post('/register', 'RegistrationController@store');
                         //searching in user database
                         Route::post('admin/search','AdminController@searchEngine');
+                        //inserting loan in minecraft
+                        Route::get('admin/loan' , 'AdminController@loanInverting');
+                        //posting hours to database
+                        Route::post('admin/loan/{user}', 'UsersController@loanHours');
 
                     });
         });

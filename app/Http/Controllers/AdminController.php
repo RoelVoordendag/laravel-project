@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Salary;
+use App\Loan;
 use Illuminate\Http\Request;
 
 
 
-class AdminController extends Controller
+class AdminController extends Controller    
 {
     public function index()
     {
         $users = User::latest()->get();
+        // $users = User::find(1);
 
         return view('admin.index', compact('users'));
     }
@@ -45,6 +46,8 @@ class AdminController extends Controller
 
         $user->update($request->all());
 
+        $user->save();
+        
         return redirect('/admin');
     }
     public function searchEngine(Request $request)

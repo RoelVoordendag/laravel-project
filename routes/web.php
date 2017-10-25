@@ -42,7 +42,9 @@ Route::middleware(['user'])->group(function(){
         Route::get('/writer/detail/{text}', 'TextController@detail');
     
         //homepage voor users
-        Route::get('/user', 'UsersController@index')->name('home');     
+        Route::get('/user', 'UsersController@index')->name('home');   
+        
+        Route::get('/user/profile', 'UsersController@profile');
             
             //middleware for writers
             Route::middleware(['writer'])->group(function(){
@@ -78,11 +80,24 @@ Route::middleware(['user'])->group(function(){
                         Route::post('/register', 'RegistrationController@store');
                         //searching in user database
                         Route::post('admin/search','AdminController@searchEngine');
-                        //inserting loan in minecraft
+                        //inserting loan in DB
                         Route::get('admin/loan' , 'AdminController@loanInverting');
                         //posting hours to database
                         Route::post('admin/loan/{user}', 'UsersController@loanHours');
-
+                        //to page with loans
+                        Route::get('/loanclasses', 'loanController@index');
+                        //delete function loanclasses
+                        Route::delete('loanclasses/delete/{loan}', 'loanController@delete');
+                        //link to making loanclasses
+                        Route::get('loanclasses/create', 'loanController@createpage');
+                        //pushinh data to table
+                        Route::post('loanclasses/create', 'loanController@create');
+                        //to edit page
+                        Route::get('loanclasses/edit/{loan}', 'loanController@edit');
+                        //editing data for class
+                        Route::post('loanclasses/edited/{loan}', 'loanController@edited');
+                        
+                        
                     });
         });
 });

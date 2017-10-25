@@ -13,5 +13,7 @@ class Salary extends Model
     public function users(){
         return $this->belongsTo('App\User');
     }
-
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

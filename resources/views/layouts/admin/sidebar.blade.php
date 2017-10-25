@@ -14,5 +14,8 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('/writer')}}">Text</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/loanclasses')}}">Classes Loan</a>
+            </li>
           </ul>
         </nav>

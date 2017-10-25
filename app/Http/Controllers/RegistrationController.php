@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Loan;
 
 use App\User;
 
@@ -8,10 +10,12 @@ class RegistrationController extends Controller
 {
     //linken naar view van registration form
     public function create(){
-        return view('registration.register');
+        $loans = Loan::all();
+
+        return view('registration.register', compact('loans'));
     }
     //pushing database to server
-    public function store(){
+    public function store(Request $request){
 
         //validating data
         $this->validate(request(),[
@@ -20,6 +24,7 @@ class RegistrationController extends Controller
             'phonenumber' => 'required',
             'date'  =>  'required|date',
             'section' => 'required',
+            'loanclass' => 'required',
             'password' => 'required|confirmed'
         ]); 
         
@@ -27,8 +32,11 @@ class RegistrationController extends Controller
         $user = User::create(request(['name', 'email', 'phonenumber', 'date', 'section', 'role', 'password']));
         $user->password = bcrypt($user->password);
 
-        $user->save();
+    
+        $user->loans()->attach($request->loanclass);
 
+        $user->save();
+        
         //redirecting to home page
         return redirect('/admin'); 
         

@@ -33,6 +33,14 @@
                             <option>Coffee</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="sel1">Loan</label>
+                        <select class="form-control" name='loanclass' style="width: 40%;">
+                        @foreach($loans as $loan)
+                            <option value='{{$loan->id}}'>{{$loan->classes}}</option>
+                        @endforeach
+                        </select>
+                    </div>
                      <div class="form-group">
                         <label for="sel1">Sector</label>
                         <select class="form-control" name='role' style="width: 40%;">

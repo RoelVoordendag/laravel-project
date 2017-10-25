@@ -12,7 +12,9 @@
 @endsection
 
 @section('content-admin')
+    
     @foreach($users as $user)
+
         <tr>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
@@ -40,6 +42,7 @@
             <td>
                 <p><a class="btn btn-warning" href="/admin/edit/{{$user->id}}" role="button">Edit</a></p>
             </td>
+            <td>
         </tr>
     @endforeach
 @endsection

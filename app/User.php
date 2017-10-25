@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Loan;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,5 +19,8 @@ class User extends Authenticatable
     ];
     public function salaryInput(){
         return $this->hasMany('App\Salary');
+    }
+    public function loans(){
+        return $this->belongsToMany(Loan::class);
     }
 }

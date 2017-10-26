@@ -48,11 +48,20 @@ class UsersController extends Controller
     public function profile()
     {
         $userdata = User::latest()->where('id' ,'=', Auth::user()->id)->get();
-        
+
         return view('users.profile', compact('userdata'));
     }
     public function searchWeek(Request $request)
     {
+        $test = $request->week;
+        // ->where('id' ,'=', Auth::user()->id)->where('week', '=', $request->week
+        $userdata = User::with(['salaryInput' =>function ($query) use($test){
+            $query->where('week', '=', $test);
+        }])->get();
+        
+        $search_term = $request->week;
+    
+        return view('users.profile', compact('userdata', 'search_term'));
        
     }
 }

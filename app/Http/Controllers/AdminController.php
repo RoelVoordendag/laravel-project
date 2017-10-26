@@ -27,7 +27,9 @@ class AdminController extends Controller
 //route to edit page
     public function edit(User $user)
     {
-        return view('admin.edit-users', compact('user'));
+        $loans = Loan::All(); 
+
+        return view('admin.edit-users', compact('user', 'loans'));
     }
     //editing data in database
     public function edited(Request $request, User $user)
@@ -39,24 +41,29 @@ class AdminController extends Controller
             'phonenumber' => 'required',
             'date'  =>  'required|date',
             'section' => 'required',
-            'role'  => 'required'
+            'role'  => 'required',
+            'class' => 'required'
         ]); 
       
         //changing data
 
         $user->update($request->all());
 
+        $user->loans()->detach();
+
+        $user->loans()->attach($request->class);
+
         $user->save();
-        
+
         return redirect('/admin');
     }
     public function searchEngine(Request $request)
     {
-        $results = User::search($request->search)->get();
+        $users = User::search($request->search)->get();
 
         $search_term = $request->search;
 
-        return view('admin.search-users', compact('results', 'search_term'));
+        return view('admin.index', compact('users', 'search_term'));
     }
     public function loanInverting()
     {

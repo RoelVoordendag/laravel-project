@@ -6,6 +6,7 @@
                     <th>Section</th>
                     <th>Phonenumber</th>
                     <th>Roles</th>
+                    <th>Loan Class</th>
                     <th>Delete</th>
                     <th>Edit</th>
                     </tr>

@@ -1,13 +1,20 @@
 @extends('layouts.admin.master')
 
 @section('search-engine-admin')
+    @if(!isset($search_term))
+        <form action="/admin/search" class='form-inline' method='POST'>
+            {{ csrf_field() }}
+            <label class="sr-only" for="inlineFormInput">Search</label>
+            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search Here" name='search'>
+            <button type="submit" class="btn btn-info">Search</button>
+        </form>
+    @else
+        <div class="list-inline-item">
+        <h5>Search Results On: {{$search_term}}</h5>
+        <a href="/admin"><button type="button" class="btn btn-primary">Back</button></a>
+    </div>
+    @endif
 
-    <form action="/admin/search" class='form-inline' method='POST'>
-        {{ csrf_field() }}
-        <label class="sr-only" for="inlineFormInput">Search</label>
-        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search Here" name='search'>
-        <button type="submit" class="btn btn-info">Search</button>
-    </form>
 
 @endsection
 
@@ -28,6 +35,11 @@
                 @elseif($user->role == 3)
                     Admin
                 @endif
+            </td>
+            <td>
+            @foreach($user->loans as $loan)
+                {{$loan->classes}}    
+            @endforeach
             </td>
             <td>
              <form action="{{ url('admin/delete/'.$user->id) }}" method="POST">

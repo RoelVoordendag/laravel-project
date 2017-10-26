@@ -5,13 +5,11 @@
     <hr>
     @foreach($users as $user)
         <form action="{{ url('admin/loan/'.$user->id) }}" method='POST'>
-    {{--  @endforeach  --}}
             {{ csrf_field() }}
             <div class="form-group" >
                 <label for='Week'>Week</label>
                 <input type="number" class="form-control" name='week' id="name" style='width: 25%'>
             </div>
-    {{--  @foreach($users as $user)  --}}
             <div class="form-group" >
                 <label for='name'>{{$user->name}}</label>
                 <input type="number" class="form-control" name='hours' id="name" style='width: 25%'>

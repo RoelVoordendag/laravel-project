@@ -48,6 +48,15 @@
                             <option value='1'>User</option>
                         </select>
                     </div>
+                    <div class='form-group'>
+                        <label for="sel1">Loan Class</label>
+                        
+                        <select name="class" class='form-control' style="width: 40%;">
+                        @foreach($loans as $loan)   
+                                <option value="{{$loan->id}}">{{$loan->classes}}</option>    
+                            @endforeach
+                        </select>
+                    </div>
                 <div class='form-group'>
                     <button type="submit" name='button' class="btn btn-primary">Edit User</button>
                 </div>

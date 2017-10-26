@@ -48,6 +48,11 @@ class UsersController extends Controller
     public function profile()
     {
         $userdata = User::latest()->where('id' ,'=', Auth::user()->id)->get();
+        
         return view('users.profile', compact('userdata'));
+    }
+    public function searchWeek(Request $request)
+    {
+       
     }
 }

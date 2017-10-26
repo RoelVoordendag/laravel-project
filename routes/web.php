@@ -45,6 +45,8 @@ Route::middleware(['user'])->group(function(){
         Route::get('/user', 'UsersController@index')->name('home');   
         
         Route::get('/user/profile', 'UsersController@profile');
+        //getting chosen week selected by user
+        Route::post('/profile/search', 'UsersController@searchWeek');
             
             //middleware for writers
             Route::middleware(['writer'])->group(function(){
@@ -96,7 +98,6 @@ Route::middleware(['user'])->group(function(){
                         Route::get('loanclasses/edit/{loan}', 'loanController@edit');
                         //editing data for class
                         Route::post('loanclasses/edited/{loan}', 'loanController@edited');
-                        
                         
                     });
         });

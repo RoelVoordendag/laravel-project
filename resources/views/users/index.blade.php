@@ -20,9 +20,3 @@
         @endif
     @endforeach
 @endsection
-{{--  @foreach($texts as $text)
-        @if($text->switch)
-           
-        @endif
-
-@endforeach  --}}

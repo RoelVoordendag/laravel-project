@@ -54,9 +54,11 @@ class UsersController extends Controller
     public function searchWeek(Request $request)
     {
         $test = $request->week;
-        // ->where('id' ,'=', Auth::user()->id)->where('week', '=', $request->week
-        $userdata = User::with(['salaryInput' =>function ($query) use($test){
+        $id = Auth::user()->id;
+
+        $userdata = User::with(['salaryInput' =>function ($query) use($test, $id){
             $query->where('week', '=', $test);
+            $query->where('user_id' , '=', $id );
         }])->get();
         
         $search_term = $request->week;

@@ -44,4 +44,10 @@ class loanController extends Controller
         
         return redirect('/loanclasses');
     }
+    public function delete (Loan $loan)
+    {
+        $loan->delete();
+        
+        return redirect('/loanclasses');
+    }
 }
